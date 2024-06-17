@@ -1,5 +1,6 @@
 import 'package:expense_tracker/widgets/expenses%20list/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
+import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -18,10 +19,12 @@ class _ExpensesState extends State<Expenses> {
   Expense(title: 'Movie', amount: 30, date: DateTime.now(), category: Category.entertainment),
   Expense(title: 'Bus', amount: 5, date: DateTime.now(), category: Category.transport), 
   Expense(title: 'Medicine', amount: 20, date: DateTime.now(), category: Category.health), 
+  Expense(title: 'Medicine', amount: 20, date: DateTime.now(), category: Category.health), 
+  Expense(title: 'Medicine', amount: 20, date: DateTime.now(), category: Category.health), 
   Expense(title: 'Other', amount: 10, date: DateTime.now(), category: Category.other) ];
 
   void _OpenAddExpense() {
-    showModalBottomSheet(context: context, builder: (ctx) => const Text('Add Expense'),);
+    showModalBottomSheet(context: context, builder: (ctx) => const NewExpense(),);
     }
 
   @override

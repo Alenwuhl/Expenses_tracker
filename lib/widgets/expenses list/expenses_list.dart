@@ -9,9 +9,12 @@ class ExpensesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: expenses.length,
-      itemBuilder: (context, index) => ExpenseItem(expenses[index]),
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: ListView.builder(
+        itemCount: expenses.length,
+        itemBuilder: (context, index) => ExpenseItem(expenses[index]),
+      ),
     );
   }
 }
