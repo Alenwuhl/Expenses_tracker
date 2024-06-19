@@ -6,61 +6,64 @@ class ExpenseItem extends StatelessWidget {
 
   final Expense expense;
 
-  IconData _getCategoryIcon(Category category) {
-    switch (category) {
-      case Category.food:
-        return Icons.restaurant;
-      case Category.clothes:
-        return Icons.shopping_bag;
-      case Category.entertainment:
-        return Icons.local_movies;
-      case Category.transport:
-        return Icons.directions_car;
-      case Category.health:
-        return Icons.medication_liquid;
-      case Category.other:
-      default:
-        return Icons.category;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      elevation: 4,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(16),
-        leading: CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.blueAccent,
-          child: Icon(
-            _getCategoryIcon(expense.category),
-            color: Colors.white,
-            size: 30,
-          ),
-        ),
-        title: Text(
-          expense.title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        subtitle: Text(
-          expense.date.toLocal().toString().split(' ')[0],
-          style: TextStyle(color: Colors.grey[600]),
-        ),
-        trailing: Text(
-          '\$${expense.amount.toStringAsFixed(2)}',
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.green,
-          ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Icon(
+                    categoryIcons[expense.category],
+                    size: 28,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
+                    expense.title,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '\$${expense.amount.toStringAsFixed(2)}',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                Text(
+                  expense.formattedDate,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey[600],
+                      ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
