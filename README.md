@@ -39,3 +39,6 @@ This application was created for practicing Flutter frontend development. It ser
 ## Author
 
 **Alén Wuhl**
+
+![ExpensesTracker-1-imageonline co-2040157](https://github.com/Alenwuhl/Expenses_tracker/assets/128154613/e6066c80-325e-4669-a309-f0f5ebbcbb2e)
+
