@@ -35,3 +35,7 @@ Click "Add expense" to add the expense.
 ## Purpose
 
 This application was created for practicing Flutter frontend development. It serves as a learning project and is not intended for commercial use.
+
+## Author
+
+**Alén Wuhl**
