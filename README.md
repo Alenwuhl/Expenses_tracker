@@ -16,7 +16,7 @@ Expense Tracker is an application developed in Flutter for tracking expenses. Th
 To run this application locally, follow these steps:
 
 1. **Clone the repository:**
-   git clone https://github.com/Alenwuhl/Expenses-tracker.git
+   git clone https://github.com/Alenwuhl/Expenses_tracker.git
      cd Expenses_tracker
 2. **Install dependencies:**
      flutter pub get
